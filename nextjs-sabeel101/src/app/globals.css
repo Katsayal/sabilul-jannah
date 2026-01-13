@@ -2,18 +2,23 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Brand Colors */
-  --color-primary-light: #337ab7;
-  --color-primary: #005A9C;
-  --color-primary-dark: #004080;
+  /* Brand Colors - Sophisticated Greens */
+  --color-primary-light: #4c7c5c;
+  --color-primary: #1b4332; /* Deep Forest Green - Trust & Growth */
+  --color-primary-dark: #081c15;
 
-  --color-secondary-light: #4CAF50;
-  --color-secondary: #2E7D32;
-  --color-secondary-dark: #1B5E20;
+  /* Secondary - Sage & Nature */
+  --color-secondary-light: #d8f3dc;
+  --color-secondary: #74c69d;
+  --color-secondary-dark: #2d6a4f;
 
-  --color-accent-light: #FFD54F;
-  --color-accent: #FFC107;
-  --color-accent-dark: #FFA000;
+  /* Accent - Warm Sand/Gold (Replaces the bright yellow) */
+  --color-accent-light: #f4f1de;
+  --color-accent: #e9c46a; /* Muted Gold - Honor & Value */
+  --color-accent-dark: #ce9d4f;
+
+  /* Neutral Background Enhancements */
+  --color-base-100: #fcfdfc; /* Off-white with a hint of mint */
 
   /* Fonts */
   --font-sans: "Inter", ui-sans-serif, system-ui;
@@ -24,9 +29,26 @@
 /* Base styles for the Charity Theme */
 @layer base {
   body {
-    @apply bg-white text-gray-800 font-sans;
+    @apply bg-base-100 text-slate-700 font-sans selection:bg-secondary/30;
   }
-  h1, h2, h3 {
-    @apply font-serif font-bold text-primary;
+  
+  h1, h2, h3, h4 {
+    @apply font-serif font-bold text-primary tracking-tight;
+  }
+
+  /* Smooth scrolling for the whole site */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Global Button Style to keep UI minimal and consistent */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-light text-white px-6 py-2 rounded-lg transition-all duration-200 font-bold;
+  }
+  
+  .card-minimal {
+    @apply bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow;
   }
 }
