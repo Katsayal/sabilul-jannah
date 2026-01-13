@@ -1,77 +1,66 @@
-import { getBlogPost, client } from "@/sanity/client";
+import { getBlogPost } from "@/sanity/client";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
-import { FaChevronLeft, FaCalendarAlt } from "react-icons/fa";
-import createImageUrlBuilder from "@sanity/image-url";
+import { FaChevronLeft, FaCalendarAlt, FaShareAlt } from "react-icons/fa";
+import { urlFor } from "@/sanity/image";
 
-const builder = createImageUrlBuilder(client);
-function urlFor(source: any) {
-  return builder.image(source);
-}
-
-export default async function BlogPostPage({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
-}) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getBlogPost(slug);
 
   if (!post) {
     return (
-      <div className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-2xl font-bold text-primary">Post not found</h1>
-        <Link href="/blog" className="text-secondary hover:underline mt-4 inline-block">
-          Return to blog
-        </Link>
+      <div className="container mx-auto px-6 py-32 text-center">
+        <h1 className="text-3xl font-bold text-primary font-serif">Post not found</h1>
+        <Link href="/blog" className="text-secondary hover:underline mt-6 inline-block font-bold">Return to Journal</Link>
       </div>
     );
   }
 
-  /**
-   * CHECK BOTH FIELD NAMES:
-   * Sanity often uses 'image' by default, but some templates use 'mainImage'.
-   * This logic checks both to be safe.
-   */
-  const imageSource = post.image;
-  const postImageUrl = imageSource?.asset 
-    ? urlFor(imageSource).width(1200).auto('format').url() 
-    : null;
+  const postImageUrl = post.image ? urlFor(post.image).width(1200).auto('format').url() : null;
 
   return (
-    <article className="container mx-auto px-4 py-16 max-w-3xl">
-      <Link href="/blog" className="inline-flex items-center gap-2 text-primary hover:text-accent mb-8 transition-colors font-bold">
-        <FaChevronLeft /> Back to Blog
-      </Link>
-
-      <header className="mb-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4 font-serif leading-tight">
-          {post.title}
-        </h1>
-        <div className="flex items-center gap-2 text-gray-500 italic">
-          <FaCalendarAlt size={14} />
-          <span>Published on {new Date(post.publishedAt).toLocaleDateString('en-US', {
-            month: 'long', day: 'numeric', year: 'numeric'
-          })}</span>
+    <article className="bg-white min-h-screen pb-24">
+      {/* Header with Navigation */}
+      <div className="bg-gray-50 border-b border-gray-100 py-6 px-6 sticky top-0 z-30">
+        <div className="container mx-auto max-w-4xl flex justify-between items-center">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-extrabold text-sm uppercase tracking-widest">
+            <FaChevronLeft /> Back to Journal
+          </Link>
+          <button className="text-gray-400 hover:text-primary transition-colors"><FaShareAlt /></button>
         </div>
-      </header>
+      </div>
 
-      {postImageUrl ? (
-        <img 
-          src={postImageUrl} 
-          alt={post.title} 
-          className="w-full h-auto rounded-3xl shadow-lg mb-10 object-cover max-h-125"
-        />
-      ) : (
-        /* This box appears if the data isn't found in Sanity */
-        <div className="w-full h-64 bg-gray-100 rounded-3xl mb-10 flex flex-col items-center justify-center text-gray-400 border-2 border-dashed border-gray-200">
-          <p>No image data found in Sanity.</p>
-          <p className="text-xs mt-2">Check if your field is named "image" or "mainImage"</p>
+      <div className="container mx-auto px-6 pt-16 max-w-4xl">
+        <header className="mb-12 text-center md:text-left">
+          <div className="flex items-center justify-center md:justify-start gap-3 text-secondary font-bold text-sm uppercase tracking-widest mb-6">
+            <FaCalendarAlt size={14} />
+            <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold text-primary mb-8 font-serif leading-[1.1]">
+            {post.title}
+          </h1>
+        </header>
+
+        {postImageUrl && (
+          <div className="relative w-full h-75 md:h-125 rounded-[2.5rem] overflow-hidden shadow-2xl mb-16">
+            <img src={postImageUrl} alt={post.title} className="w-full h-full object-cover" />
+          </div>
+        )}
+
+        {/* Content Area with Rich Typography */}
+        <div className="prose prose-lg md:prose-xl prose-primary max-w-none prose-headings:font-serif prose-headings:text-primary prose-p:text-gray-700 prose-p:leading-relaxed prose-img:rounded-3xl prose-blockquote:border-accent prose-blockquote:bg-accent/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl">
+          {post.body && <PortableText value={post.body} />}
         </div>
-      )}
 
-      <div className="prose prose-lg prose-primary max-w-none">
-        {post.body && <PortableText value={post.body} />}
+        {/* Post Footer */}
+        <footer className="mt-20 pt-12 border-t border-gray-100 flex flex-col items-center gap-8">
+          <p className="text-gray-400 italic font-serif">Thank you for reading about our mission.</p>
+          <div className="flex gap-4">
+             <Link href="/donate" className="bg-accent text-primary-dark px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">Support this Cause</Link>
+             <Link href="/blog" className="bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">More Stories</Link>
+          </div>
+        </footer>
       </div>
     </article>
   );

@@ -1,7 +1,6 @@
 import { createClient } from "next-sanity";
 
 export const client = createClient({
-  // Use process.env to pull from your .env.local file
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, 
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   apiVersion: "2024-01-01",
@@ -9,6 +8,7 @@ export const client = createClient({
 });
 
 // --- Interfaces for Type Safety ---
+
 export interface BlogPost {
   _id: string;
   title: string;
@@ -20,7 +20,6 @@ export interface BlogPost {
   publishedAt: string;
 }
 
-// Landing Section Interface
 export interface LandingPageData {
   heroTitle: string;
   heroDescription: string;
@@ -29,7 +28,6 @@ export interface LandingPageData {
   };
 }
 
-// Activity Section Interface
 export interface Activity {
   _id: string;
   title: string;
@@ -37,7 +35,23 @@ export interface Activity {
   link?: string;
 }
 
-// --- Helper Functions (Fetched from your original logic) ---
+export interface Member {
+  _id: string;
+  name: string;
+  role: string;
+  image?: any;
+}
+
+export interface Testimonial {
+  _id: string;
+  author: string;
+  role: string;
+  quote: string;
+  image?: any;
+}
+
+// --- Fetch Functions ---
+
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
   const query = `*[_type == "post"] | order(publishedAt desc) {
     _id, title, slug, image, publishedAt
@@ -57,9 +71,7 @@ export const getBlogPost = async (slug: string): Promise<BlogPost | null> => {
   return await client.fetch(query, { slug });
 };
 
-// Add this function at the bottom
 export const getLandingPage = async (): Promise<LandingPageData | null> => {
-  // We use [0] because we only ever want the first landingPage document
   const query = `*[_type == "landingPage"][0] {
     heroTitle,
     heroDescription,
@@ -70,4 +82,12 @@ export const getLandingPage = async (): Promise<LandingPageData | null> => {
 
 export const getActivities = async (): Promise<Activity[]> => {
   return await client.fetch(`*[_type == "activity"]{_id, title, image, link}`);
+};
+
+export const getMembers = async (): Promise<Member[]> => {
+  return await client.fetch(`*[_type == "member"] | order(order asc){_id, name, role, image}`);
+};
+
+export const getTestimonials = async (): Promise<Testimonial[]> => {
+  return await client.fetch(`*[_type == "testimonial"]{_id, author, role, quote, image}`);
 };

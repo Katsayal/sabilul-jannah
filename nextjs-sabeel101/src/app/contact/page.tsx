@@ -1,60 +1,94 @@
-import { FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
 export default function ContactPage() {
-  // TODO: Replace with your actual Google Form link for inquiries
+  // Replace with your actual Google Form link
   const contactFormUrl = "https://docs.google.com/forms/d/e/YOUR_CONTACT_FORM_ID/viewform";
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-5xl">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold text-primary mb-4 font-serif">Contact Us</h1>
-        <p className="text-gray-600">Have questions? We are here to help and listen.</p>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-8">
-        {/* Contact Info Cards */}
-        <div className="space-y-6">
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4">
-            <div className="bg-accent/20 p-3 rounded-lg text-accent-dark">
-              <FaEnvelope size={24} />
-            </div>
-            <div>
-              <h4 className="font-bold text-gray-800">Email Us</h4>
-              <p className="text-gray-600 text-sm">contact@sabiluljannah.org</p>
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4">
-            <div className="bg-primary/10 p-3 rounded-lg text-primary">
-              <FaMapMarkerAlt size={24} />
-            </div>
-            <div>
-              <h4 className="font-bold text-gray-800">Location</h4>
-              <p className="text-gray-600 text-sm">Main Office, City Center</p>
-            </div>
-          </div>
+    <main className="bg-base-100 min-h-screen">
+      {/* Header Section */}
+      <section className="bg-primary-dark text-white py-20 px-6">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 font-serif text-accent">
+            Get in Touch
+          </h1>
+          <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+            Have questions about our projects or want to support our mission? 
+            We are here to listen and help.
+          </p>
         </div>
+      </section>
 
-        {/* Form Link Section */}
-        <div className="md:col-span-2 bg-primary text-white p-10 rounded-2xl shadow-xl relative overflow-hidden">
-          <div className="relative z-10">
-            <h2 className="text-3xl font-bold mb-6 font-serif text-accent">Send a Message</h2>
-            <p className="mb-8 text-primary-light text-lg">
-              To ensure your inquiry reaches the right department, please fill out our official contact form.
-            </p>
+      <div className="container mx-auto px-6 -mt-10 pb-20 max-w-6xl">
+        <div className="grid lg:grid-cols-3 gap-8">
+          
+          {/* Actionable Contact Cards */}
+          <div className="space-y-4 lg:col-span-1">
             <a 
-              href={contactFormUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-accent hover:bg-accent-dark text-primary font-bold py-4 px-8 rounded-lg transition-colors"
+              href="mailto:contact@sabiluljannah.org" 
+              className="bg-white p-6 rounded-4xl shadow-sm border border-gray-100 flex items-center gap-5 hover:shadow-md transition-all active:scale-95 group"
             >
-              Open Contact Form <FaExternalLinkAlt size={16} />
+              <div className="bg-secondary/10 p-4 rounded-2xl text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                <FaEnvelope size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-primary font-serif">Email Us</h4>
+                <p className="text-gray-500 text-sm">contact@sabiluljannah.org</p>
+              </div>
             </a>
+
+            <a 
+              href="https://wa.me/1234567890" 
+              className="bg-white p-6 rounded-4xl shadow-sm border border-gray-100 flex items-center gap-5 hover:shadow-md transition-all active:scale-95 group"
+            >
+              <div className="bg-green-100 p-4 rounded-2xl text-green-600 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                <FaWhatsapp size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-primary font-serif">WhatsApp</h4>
+                <p className="text-gray-500 text-sm">Chat with our team</p>
+              </div>
+            </a>
+
+            <div className="bg-white p-6 rounded-4xl shadow-sm border border-gray-100 flex items-center gap-5">
+              <div className="bg-accent/20 p-4 rounded-2xl text-accent-dark">
+                <FaMapMarkerAlt size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-primary font-serif">Location</h4>
+                <p className="text-gray-500 text-sm">Daura Katsina State, Nigeria</p>
+              </div>
+            </div>
           </div>
-          {/* Decorative Background Icon */}
-          <FaEnvelope className="absolute -bottom-10 -right-10 text-white/5 text-9xl transform -rotate-12" />
+
+          {/* Form Link Section */}
+          <div className="lg:col-span-2 bg-primary text-white p-8 md:p-12 rounded-[2.5rem] shadow-xl relative overflow-hidden flex flex-col justify-center">
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif text-accent">
+                Send a Message
+              </h2>
+              <p className="mb-10 text-white/80 text-lg md:text-xl leading-relaxed max-w-xl">
+                To help us direct your inquiry to the right department, please use our secure contact form. We aim to respond within 24–48 hours.
+              </p>
+              
+              <a 
+                href={contactFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-dark text-primary-dark font-extrabold py-5 px-10 rounded-full transition-all shadow-lg active:scale-95 w-full sm:w-auto text-center"
+              >
+                Open Official Form <FaExternalLinkAlt size={16} />
+              </a>
+            </div>
+
+            {/* Decorative Element */}
+            <div className="absolute -bottom-10 -right-10 text-white/5 text-[15rem] transform -rotate-12 pointer-events-none">
+              <FaEnvelope />
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
+    </main>
   );
 }
