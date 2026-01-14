@@ -6,14 +6,14 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   // Primary Meta Tags
   title: "Sabilul Jannah | Empowering Communities, Seeking Paradise",
-  description: "A modern charity foundation dedicated to providing food, education, and support to those in need. Join us in our mission of compassion.",
+  description: "A modern charity foundation dedicated to providing food, education, and support to those in need.",
   
   // Open Graph / Facebook
   openGraph: {
     type: "website",
     url: "https://sabilul-jannah.netlify.app/", // Replace with your actual Netlify URL
     title: "Sabilul Jannah | Charity Foundation",
-    description: "Empowering communities and serving humanity. Join our mission today.",
+    description: "Join us in providing support and building a path to paradise through service.",
     siteName: "Sabilul Jannah",
     images: [
       {
