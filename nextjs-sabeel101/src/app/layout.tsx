@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   // Open Graph / Facebook
   openGraph: {
     type: "website",
-    url: "https://sabiluljannah.org", // Replace with your actual Netlify URL
+    url: "https://sabilul-jannah.netlify.app/", // Replace with your actual Netlify URL
     title: "Sabilul Jannah | Charity Foundation",
     description: "Empowering communities and serving humanity. Join our mission today.",
     siteName: "Sabilul Jannah",
