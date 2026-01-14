@@ -4,8 +4,40 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Sabilul Jannah | Charity Foundation",
-  description: "Dedicated to community service and support.",
+  // Primary Meta Tags
+  title: "Sabilul Jannah | Empowering Communities, Seeking Paradise",
+  description: "A modern charity foundation dedicated to providing food, education, and support to those in need. Join us in our mission of compassion.",
+  
+  // Open Graph / Facebook
+  openGraph: {
+    type: "website",
+    url: "https://sabiluljannah.org", // Replace with your actual Netlify URL
+    title: "Sabilul Jannah | Charity Foundation",
+    description: "Empowering communities and serving humanity. Join our mission today.",
+    siteName: "Sabilul Jannah",
+    images: [
+      {
+        url: "/opengraph-image.png", // Looks in your public folder
+        width: 1200,
+        height: 630,
+        alt: "Sabilul Jannah Foundation Logo",
+      },
+    ],
+  },
+
+  // Twitter
+  twitter: {
+    card: "summary_large_image",
+    title: "Sabilul Jannah | Charity Foundation",
+    description: "Join us in providing support and building a path to paradise through service.",
+    images: ["/opengraph-image.png"],
+  },
+  
+  // Icons
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

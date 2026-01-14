@@ -3,6 +3,30 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { FaChevronLeft, FaCalendarAlt, FaShareAlt } from "react-icons/fa";
 import { urlFor } from "@/sanity/image";
+import { Metadata } from "next";
+
+// This generates unique metadata for every blog post
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
+
+  if (!post) return { title: "Post Not Found" };
+
+  // Generate the image URL for the social share preview
+  const ogImageUrl = post.image 
+    ? urlFor(post.image).width(1200).height(630).url() 
+    : "/opengraph-image.png"; 
+
+  return {
+    title: `${post.title} | Sabilul Jannah Blog`,
+    description: "Read the latest updates and stories from Sabilul Jannah Foundation.",
+    openGraph: {
+      title: post.title,
+      description: "A story of impact from Sabilul Jannah.",
+      images: [ogImageUrl],
+    },
+  };
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
