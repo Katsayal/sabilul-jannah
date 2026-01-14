@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sabilul-jannah.netlify.app"), // Replace with your actual live URL
   // Primary Meta Tags
   title: "Sabilul Jannah | Empowering Communities, Seeking Paradise",
   description: "A modern charity foundation dedicated to providing food, education, and support to those in need.",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Sabilul Jannah",
     images: [
       {
-        url: "${siteUrl}/opengraph-image.png", // Looks in your public folder
+        url: "/opengraph-image.png", // Looks in your public folder
         width: 1200,
         height: 630,
         alt: "Sabilul Jannah Foundation Logo",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sabilul Jannah | Charity Foundation",
     description: "Join us in providing support and building a path to paradise through service.",
-    images: ["${siteUrl}/opengraph-image.png"],
+    images: ["/opengraph-image.png"],
   },
   
   // Icons

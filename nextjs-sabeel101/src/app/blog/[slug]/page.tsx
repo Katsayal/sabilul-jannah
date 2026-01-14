@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {/* Post Footer */}
         <footer className="mt-20 pt-12 border-t border-gray-100 flex flex-col items-center gap-8">
-          <p className="text-gray-400 italic font-serif">Thank you for reading about our mission.</p>
+          <p className="text-gray-400 italic font-serif">Alhamdulillahi.</p>
           <div className="flex gap-4">
              <Link href="/donate" className="bg-accent text-primary-dark px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">Support this Cause</Link>
              <Link href="/blog" className="bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">More Stories</Link>
