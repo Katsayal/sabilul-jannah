@@ -34,11 +34,7 @@ export const metadata: Metadata = {
     images: ["/opengraph-image.png"],
   },
   
-  // Icons
-  icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
-  },
+
 };
 
 export default function RootLayout({
