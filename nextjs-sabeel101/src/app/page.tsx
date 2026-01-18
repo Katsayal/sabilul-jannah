@@ -22,7 +22,9 @@ export default async function HomePage() {
       <section className="relative min-h-[85vh] flex items-center justify-center text-white px-6 py-20 overflow-hidden bg-primary-dark">
         {bgImage && (
           <div className="absolute inset-0 z-0">
-            <img src={bgImage} alt={heroTitle} className="w-full h-full object-cover" loading="eager" />
+            <img src={bgImage}
+            alt={`${heroTitle} - Leading the path to paradise through community service and charity`}
+            className="w-full h-full object-cover" loading="eager" />
             <div className="absolute inset-0 bg-black/60" /> 
           </div>
         )}
@@ -57,9 +59,13 @@ export default async function HomePage() {
       <section className="py-24 bg-primary text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold font-serif text-accent mb-4">Our Activities</h2>
+            <h2 className="text-3xl md:text-5xl font-bold font-serif text-accent mb-4">
+              Our Charitable Activities & Sadaqah Projects
+            </h2>
             <div className="h-1.5 w-20 bg-secondary mx-auto rounded-full"></div>
-            <p className="mt-6 text-white/70 max-w-xl mx-auto">Click on our core initiatives to learn more about how we serve.</p>
+            <p className="mt-6 text-white/70 max-w-xl mx-auto">
+            Discover how your donations empower our local community through diverse welfare initiatives.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -71,8 +77,8 @@ export default async function HomePage() {
               >
                 <div className="absolute inset-0">
                   <img 
-                    src={urlFor(activity.image).width(600).height(800).url()} 
-                    alt={activity.title}
+                    src={urlFor(activity.image).width(600).height(800).url()}
+                    alt={`Sabilul Jannah Activity: ${activity.title}`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-primary/90 via-primary/20 to-transparent"></div>

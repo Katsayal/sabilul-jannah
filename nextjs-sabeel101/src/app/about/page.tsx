@@ -15,11 +15,13 @@ export default async function AboutPage() {
         <div className="absolute inset-0 bg-black/20 z-0"></div>
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <h1 className="text-4xl md:text-7xl font-bold mb-8 font-serif text-accent leading-tight">
-            Our Journey & Purpose
+            Sabilul Jannah: Serving the Community in Daura
           </h1>
           <p className="text-lg md:text-2xl text-white/90 leading-relaxed max-w-2xl mx-auto">
             Sabilul Jannah was founded on the principle that serving humanity is 
             the most direct path to seeking the pleasure of the Almighty.
+            Our mission is to provide Zakat and Sadaqah-based support, education, and resources
+            to underprivileged communities, ensuring dignity and hope for every individual.
           </p>
         </div>
       </section>
@@ -57,16 +59,16 @@ export default async function AboutPage() {
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="md:w-1/2">
               <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8 font-serif flex items-center gap-4">
-                <FaHistory className="text-secondary" /> Our History
+                <FaHistory className="text-secondary" /> Our History as a Local Non-Profit
               </h2>
               <div className="space-y-6 text-white/80 leading-relaxed text-lg">
                 <p>
-                  Started as a community group in 2024, Sabilul Jannah grew from a simple observation: 
-                  many small needs were going unnoticed in our local neighborhoods.
+                  Started as a community group in Daura in 2024, Sabilul Jannah grew from a simple observation: 
+                  many small needs were going unnoticed in our local neighborhoods within Katsina State.
                 </p>
                 <p>
-                  Today, we provide monthly food baskets, medical assistance funds, and educational 
-                  scholarships to those who need them most.
+                  Today, we provide food baskets, medical assistance funds, and educational 
+                  scholarships to families across Daura and beyond to help those who need them most.
                 </p>
               </div>
             </div>
@@ -99,8 +101,8 @@ export default async function AboutPage() {
               <div className="relative aspect-square mb-6 rounded-4xl overflow-hidden bg-gray-100 border border-gray-100 shadow-sm transition-transform duration-500 group-hover:-translate-y-2">
                 {member.image ? (
                   <img 
-                    src={urlFor(member.image).width(400).height(400).url()} 
-                    alt={member.name}
+                    src={urlFor(member.image).width(400).height(400).url()}
+                    alt={`Sabilul Jannah Foundation Team Member: ${member.name} - ${member.role}`}
                     className="w-full h-full object-cover"
                   />
                 ) : (
