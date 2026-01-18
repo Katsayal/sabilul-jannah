@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { getMembers } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 
+export const revalidate = 60;
+
 export default async function AboutPage() {
   const members = await getMembers();
 

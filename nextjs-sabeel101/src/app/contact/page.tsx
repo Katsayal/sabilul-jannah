@@ -1,5 +1,7 @@
 import { FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
+export const revalidate = 60;
+
 export default function ContactPage() {
   // Replace with your actual Google Form link
   const contactFormUrl = "https://docs.google.com/forms/d/e/YOUR_CONTACT_FORM_ID/viewform";

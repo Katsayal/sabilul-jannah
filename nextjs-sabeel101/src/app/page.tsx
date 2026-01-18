@@ -3,6 +3,8 @@ import { FaHeart, FaHandsHelping, FaLightbulb, FaQuoteRight, FaUserCircle } from
 import { getLandingPage, getActivities, getTestimonials } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 
+export const revalidate = 60;
+
 export default async function HomePage() {
   const [data, activities, testimonials] = await Promise.all([
     getLandingPage(),
