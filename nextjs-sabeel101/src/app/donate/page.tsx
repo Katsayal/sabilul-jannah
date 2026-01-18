@@ -3,8 +3,6 @@
 import { FaUniversity, FaCopy, FaHeart, FaShieldAlt, FaCheckCircle } from 'react-icons/fa';
 import { useState } from 'react';
 
-export const revalidate = 60;
-
 export default function DonatePage() {
   const [copied, setCopied] = useState(false);
 
