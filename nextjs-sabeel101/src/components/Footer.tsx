@@ -28,7 +28,6 @@ const Footer = () => {
               <li><Link href="/blog" className="text-gray-300 hover:text-accent transition-colors py-2 block">Blog</Link></li>
               <li><Link href="/contact" className="text-gray-300 hover:text-accent transition-colors py-2 block">Contact</Link></li>
               <li><Link href="/donate" className="text-gray-300 hover:text-accent transition-colors py-2 block">Donate</Link></li>
-              <li><Link href="/activities" className="text-gray-300 hover:text-accent transition-colors py-2 block">Activities</Link></li>
             </ul>
           </div>
 
