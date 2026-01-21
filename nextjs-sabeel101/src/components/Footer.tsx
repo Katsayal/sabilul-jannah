@@ -40,18 +40,18 @@ const Footer = () => {
             
             {/* Direct Contact Links - Huge tap targets for mobile */}
             <div className="space-y-4 mb-8 w-full">
-              <a href="mailto:contact@sabiluljannah.org" className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-accent transition-colors group">
+              <a href="mailto:sabiluljannah1411@gmail.com" className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-accent transition-colors group">
                 <div className="p-2 bg-white/5 rounded-lg group-hover:bg-accent/10">
                   <FaEnvelope className="h-5 w-5 text-accent" />
                 </div>
-                <span>contact@sabiluljannah.org</span>
+                <span>sabiluljannah1411@gmail.com</span>
               </a>
               {/* Added a placeholder phone link as it's vital for mobile users */}
-              <a href="tel:+1234567890" className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-accent transition-colors group">
+              <a href="tel:+234 816 423 9070" className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-accent transition-colors group">
                 <div className="p-2 bg-white/5 rounded-lg group-hover:bg-accent/10">
                   <FaPhone className="h-5 w-5 text-accent" />
                 </div>
-                <span>+123 456 7890</span>
+                <span>+234 816 423 9070</span>
               </a>
             </div>
 

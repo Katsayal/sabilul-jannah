@@ -3,8 +3,7 @@ import { FaHandsHelping, FaCheckCircle, FaUserPlus, FaCheck } from 'react-icons/
 export const revalidate = 60;
 
 export default function VolunteerPage() {
-  // Replace with your actual Google Form link
-  const googleFormUrl = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform";
+  const googleFormUrl = "https://forms.gle/1ZYhufRkYr7duuV8A";
 
   return (
     <main className="bg-white min-h-screen pb-24">

@@ -3,8 +3,7 @@ import { FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt, FaPhoneAlt, FaWhatsapp }
 export const revalidate = 60;
 
 export default function ContactPage() {
-  // Replace with your actual Google Form link
-  const contactFormUrl = "https://docs.google.com/forms/d/e/YOUR_CONTACT_FORM_ID/viewform";
+  const contactFormUrl = "https://forms.gle/ejXwxiG2XdPQSUbe6";
 
   return (
     <main className="bg-base-100 min-h-screen">
@@ -27,7 +26,7 @@ export default function ContactPage() {
           {/* Actionable Contact Cards */}
           <div className="space-y-4 lg:col-span-1">
             <a 
-              href="mailto:contact@sabiluljannah.org" 
+              href="mailto:sabiluljannah1411@gmail.com" 
               className="bg-white p-6 rounded-4xl shadow-sm border border-gray-100 flex items-center gap-5 hover:shadow-md transition-all active:scale-95 group"
             >
               <div className="bg-secondary/10 p-4 rounded-2xl text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
@@ -35,12 +34,12 @@ export default function ContactPage() {
               </div>
               <div>
                 <h4 className="font-bold text-primary font-serif">Email Us</h4>
-                <p className="text-gray-500 text-sm">contact@sabiluljannah.org</p>
+                <p className="text-gray-500 text-sm">sabiluljannah1411@gmail.com</p>
               </div>
             </a>
 
             <a 
-              href="https://wa.me/1234567890" 
+              href="https://wa.me/2348164239070" 
               className="bg-white p-6 rounded-4xl shadow-sm border border-gray-100 flex items-center gap-5 hover:shadow-md transition-all active:scale-95 group"
             >
               <div className="bg-green-100 p-4 rounded-2xl text-green-600 group-hover:bg-green-600 group-hover:text-white transition-colors">
